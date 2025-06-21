@@ -1,0 +1,2 @@
+# pgpt-meta-prompt
+pgpt: prompt-generating-gpt or parent-gpt, sgpt: specific-gpt or son-gpt
