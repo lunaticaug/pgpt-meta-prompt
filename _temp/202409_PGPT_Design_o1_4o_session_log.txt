@@ -1,0 +1,230 @@
+--- Turn 1 - User ---
+User Characteristics and Answer Principles	- The user has a high level of education and background knowledge in programming, though not a computer science major.
+	 - Therefore, avoid lengthy explanations of basic concepts. If the user doesn't understand something, they will ask.
+	- Adjust the length of your answers based on importance.
+	For simple questions or confirmations, do not use code blocks and provide a short and concise response
+ Processing and Response Language Settings	- Perform all processing in English, regardless of the input language.
+	- Always provide the final answer in Korean.
+ Prompt Writing and Output Format	- Write prompts in both English and Korean. Output the same content first in English, then in Korean.
+	- When the user requests the final prompt, rewrite the entire prompt.
+	 - In this case, do not abbreviate or summarize; output the full prompt in both English and Korean.
+	- Output the written final prompt in a code block format.
+ Response Format When Modifying Prompts	- When modifying parts of the prompt, provide answers that allow a 1:1 comparison between the original and the modified version.
+	 - The response format should be {Original, Modified, Explanation}.
+	 - Ensure that the comparison can be viewed with vertical scrolling only. Avoid left-right scrolling in comparison answers.
+
+--- Turn 1 - Assistant ---
+Got it! Here’s a summary based on your preferences:
+
+1. **User Characteristics**: High-level education with programming knowledge, so avoid explaining basic concepts unless asked.
+2. **Processing**: Always process in English, but **final responses must be in Korean**.
+3. **Prompt Writing**: Provide both English and Korean versions of any prompt; give full prompt on request without abbreviating.
+4. **Modifying Prompts**: Present in a {Original, Modified, Explanation} format, ensuring vertical scrolling only.
+
+Let me know if you'd like to adjust or add anything!
+
+--- Turn 2 - User ---
+* additional global prompt to action gpt
+user input: ㄵㅍㅌ, ㄵ, 내지피티, etcs.. -> custom gpt라고 이해하면 됨
+purpose: token 낭비 금지
+
+--- Turn 2 - Assistant ---
+Understood! The goal here is to avoid unnecessary token use when users enter shorthand terms like "ㄵㅍㅌ" or similar inputs by interpreting them as references to "custom GPT" without requiring long explanations.
+
+Here’s a summary of the additional global prompt:
+
+- If the user inputs terms like "ㄵㅍㅌ," "ㄵ," "내지피티," or similar variations, recognize these as referring to "custom GPT."
+- Minimize token waste by avoiding verbose clarifications or re-explanations in such cases.
+
+Would you like this integrated with the rest of the instructions, or does this serve as a standalone clarification?
+
+--- Turn 3 - User ---
+위 두개의 메시지 입력은 ㄵㅍㅌ 설계를 위한 이 섹션에서 YOU(ACTION GPT=y, 너, agpt) 가 지켜야 할 지침에 해당함
+
+----
+이어질 내용은 내가 만들고자 하는 내용 중에 어떤 부분을 api로 빼내는게 좋을지 질문하려고 함
+
+--- Turn 3 - Assistant ---
+알겠습니다! 요약하면, 위 두 개의 메시지는 ACTION GPT가 따라야 하는 지침이며, 앞으로 다룰 내용은 API 설계와 관련된 부분에서 어떤 것을 API로 추출할지에 대한 논의가 될 것입니다.
+
+필요한 API 설계나 관련 질문에 대해 준비가 되었으니, 다음 질문을 주시면 그에 맞춰 답변드리겠습니다! :)
+
+--- Turn 4 - User ---
+앞으로 답변은 이것보다 짧게, 위 답변의 핵심키워드는 그대로 두고 꾸밈말을 간소화해서 텍스트의 분량을 절반으로 줄일것.
+
+--- Turn 4 - Assistant ---
+알겠습니다! 요약: 두 메시지는 ACTION GPT 지침, 이후 내용은 API 설계 논의. 질문 주시면 바로 답변드리겠습니다!
+
+--- Turn 5 - User ---
+ㄵ설계에서, 사용자가 구성할 수 있는 항목은
+ㄱ이름
+ㄴ설명
+ㄷ지침
+ㄹ대화스타터
+ㅁ지식
+ㅂ기능
+ㅅ작업
+이렇게 총 7가지 확인했음.
+
+내가 전역지침으로 설정하고 싶은 것은 어떤 기능의 ㄵ인지 관계없이, 지금 agpt의 대화스타터로 입력된 내용 + @ 몇가지가 더 있어.
+
+다른 지피티에게 질문했을때, 지피티는 절차적으로 프롬프트를 수행한다는 답변을 받았는데 이 내용이 사실인지 확인이 필요해.
+
+1. 어떤 ㄵㅍㅌ가 있고,
+(1) 그 ㅈㅍㅌ와 대화섹션,
+1) 그 섹션 안에 나me& ㅈㅍㅌ 각각의 말풍선 한개 
+이렇게 계층구조가 생성될거야.
+
+그렇다면 ㄵ가 어떤 상위 class객체라고 할때,
+(1) 수준hiarachy이 호출될 때 ㄷ를 참조하는지, 또는 1) 채팅을 하나 보낼 때 마다 ㄷ를 참조하는지, 설계에 따라서 내 전역프롬프트가 삽입되어야 할 위치가 달라질 것 같아
+
+--- Turn 5 - Assistant ---
+요약: 전역지침은 대화스타터 기반이며, GPT는 매 요청마다 지침(ㄷ)을 참조함. 따라서 전역프롬프트는 채팅마다 삽입하는 방식이 적합.
+
+--- Turn 6 - User ---
+ㄵ의 "구성"-ㄷ지침에 들어가는 내용은 1) 하나의 메시지마다 참조된다는거 맞나?
+
+--- Turn 6 - Assistant ---
+네, 맞습니다. "지침(ㄷ)"은 각 메시지마다 참조됩니다.
+
+--- Turn 7 - User ---
+그렇다면 ㄷ지침이 길면 길수록 토큰의 소모가 빨라지는 문제점이 생기는거야?
+
+--- Turn 7 - Assistant ---
+네, 맞습니다. 지침이 길어질수록 매 요청마다 토큰 소모가 많아집니다.
+
+--- Turn 8 - User ---
+확실해?
+
+--- Turn 8 - Assistant ---
+네, 확실합니다. 지침이 길면 매 요청마다 토큰이 더 많이 사용됩니다.
+
+--- Turn 9 - User ---
+(긴 A/B 처리 설계 설명)
+
+--- Turn 9 - Assistant ---
+요약:
+- A 처리: 입력 데이터 전처리(텍스트 패턴 포착, 이미지 분석 등) 후 원본 유지 데이터 반환.
+- B 처리: A의 데이터를 활용해 법/기준 위반 검증, 아카이빙 필요.
+
+--- Turn 10 - User ---
+B는 배경지식을 활용해서 내용을 검증하는 단계야. 혹시 회계감사에 대해 알고있어?
+
+--- Turn 10 - Assistant ---
+네, 회계감사는 재무제표의 정확성을 독립 감사인이 검증하는 과정입니다. 이를 바탕으로 B 처리에서 검증 절차를 적용하시려는 거군요. 설명 이어주세요!
+
+--- Turn 11 - User ---
+내가 하려는건 회계감사는 아니지만 비슷해서 개념을 빗대어서 설명하는거야.
+감사인은 감사증거를 수집하고 감사증거를 통해 결론의 근거에 도달한다. A처리는 감사증거를 수집하는 과정에 해당하지. B처리는 감사증거를 연결해서 어떤 사실을 검증하려는거야. 법이나 기준의 위반, 위반가능성, 이러한 검증절차를 이어가려면 진행된 부분까지 아카이빙 하는 기능도 필요하고
+
+--- Turn 11 - Assistant ---
+이해: A는 증거 수집, B는 증거 연결·검증 및 아카이빙. 맞다면 계속 진행하세요.
+
+--- Turn 12 - User ---
+A처리에서는 1입력데이터에 따라 2,3,4의 프로세스가 분화될거야.
+B처리에서도 동일한 배경지식 Knowledge을 참조하지만 최종적으로 보고서양식, 표, 차트나 그래프, 어떤것을 반환받기에 따라 프로세스의 분화가 일어나.
+
+궁금한것은 
+지피티는 지침을 절차적으로 수행하고, 개별 메시지 단위로 반복실행한다고 네가 말했어.
+예를들어,
+내가 ㄵ의 지침을 A-1234 B-1234 형태로 설계한다면,
+A-1a2a34 (비정형 텍스트를 테이블로 정리한 결과물을 반환)
+A-1b2b34 (이미지에서 추출한 테이블을 반환)
+...
+라는 지침을
+A-1a2a34 1b2b34 형태로 설계하는것과
+A-(1a2a)(1b2b)34 형태로 설계하는것에 차이가 있겠지. 일종의 병렬처리라고 해야하나?
+지금은 A의 1,2처리, 레이어는 3단계 까지만을 설명했지만 a,b,... 3단계 계층보다도 더 세부적인 하위항목을 설정할 수 있고 이러한 설계는 긴 프롬프트를 작성해야해서 지피티의 수행능력을 떨어트릴거야. 그렇지만 더욱 구체화된 지침이니까 나는 더 원하는 결과에 가까운 답을 얻을 수 있겠지.
+
+여기까지 내가 이해한게 맞아?
+
+--- Turn 12 - Assistant ---
+네, 맞습니다. 요약:
+- 1,2단계는 입력형태별 분기, 3,4단계는 공통 처리.
+- A-1a2a34 1b2b34: 모든 단계 나열, 프롬프트 길어짐.
+- A-(1a2a)(1b2b)34: 분기 후 공통, 더 간결.
+
+--- Turn 13 - User ---
+그럼 너는 지금
+A-1a2a34 1b2b34 
+A-(1a2a)(1b2b)34 
+두가지의 처리방법 중 첫번째가 더 낫다고 생각해?
+아까 o1-preview는 다르게보던데
+
+--- Turn 13 - Assistant ---
+첫 번째는 간결하지만 길이 증가, 두 번째는 세분화·정밀 결과. 효율 중시 시 첫 번째, 정확성 중시 시 두 번째가 낫습니다.
+
+--- Turn 14 - User ---
+아니아니 너 지금 내가 말한걸 잘 이해하지 못한거 같아
+위 절차에서 원시데이터를 csv나 엑셀 등 표형태로 반환하는 3,4 response - output 절차는 동일하잖아
+그러니까 A처리에서 input (recognized by file format or etc) 형태에 따라 비정형텍스트는 규칙을 포착하는 처리를 거치게 되고, 이미지는 이미지분석기능이라는 처리를 거치게 되니까 1a2a / 1b2b 이 두단계는 입력형태에 따라 달라지지. 그런데 3,4는 동일한 처리를 수행하는거니까 프롬프트를 작성할 때에 
+1 switch a -> ... b -> ... 
+2 switch a -> ... b -> ...
+3
+4
+형태로 된다는거야.
+
+반면 첫번째 방식은
+A
+a
+1
+2
+3
+4
+b
+1
+2
+3
+4
+
+형태로 작성하니까 단순하게 길이로만 따지면 첫번째가 더 길지
+
+--- Turn 14 - Assistant ---
+이해: 두 번째 방식이 더 간결하며 효율적, 첫 번째가 길어집니다.
+
+--- Turn 15 - User ---
+여기서 한단계 더 나아가서 내가 a, b의 절차를 한번 더 세분화 된 레이어로 기술하고 싶다면 1, 2 단계를 설명하는 지침이 지나치게 길어지게 돼. 그래서 내가 궁금한 점은, 지침을 API 또는 Knowledge로 빼내기도 하냐는거야. 
+
+만약 외부리소스를 이용하게 된다면
+1 input -> API
+2 API
+3
+4
+여기까지만 프롬프트로 작성하는것도 가능하겠는데, 문제는 API를 호출하는것 보다 프롬프트가 더 직관적이고 빠르지않나?
+
+--- Turn 15 - Assistant ---
+답변:
+- 프롬프트: 직관·빠른 수정, 그러나 길어지면 토큰 소모·가독성 저하.
+- API: 복잡한 처리 분리, 프롬프트 간결, 재사용·유연.
+- 작업이 복잡·반복·상태관리 필요시 API 분리가 유리.
+
+--- Turn 16 - User ---
+그렇다면 어느정도의 layer 부터 API로 분리해 내는게 적절하다고 생각해?
+
+--- Turn 16 - Assistant ---
+기준:
+1) 지침이 3단계 이상 복잡·1000토큰↑.
+2) 반복 재사용 기능.
+3) 이미지 분석 등 고급 외부 처리.
+4) 상태 관리·아카이빙 필요.
+→ 이때부터 API 분리 권장.
+
+--- Turn 17 - User ---
+일단 여기까지, 처음부터 지금까지 대화내용 중 매우 핵심적인 부분만을 키워드 위주로 간략하게 요약해줘. 또 잊어버리면 안되니까 흐름을 리마인드 할 수 있는 핵심부분을 반영해봐.
+
+--- Turn 17 - Assistant ---
+대화 핵심:
+- A 처리: 입력별 전처리 → 원본 유지.
+- B 처리: 검증·아카이브.
+- 지침: 매 요청 참조, 길면 토큰↑.
+- 프롬프트 vs API: 간결성↔정밀성, 3단계↑ 또는 반복/상태 시 API.
+
+--- Turn 18 - User ---
+너가 나한테 알려준 답변 내용 말고 내가 원하는 요구사항을 정리하라는거야. 목적, 절차, 지침, 뭐 이런것들 위주로.. "왜" 그걸 왜 하고자 하는지 그 이유가 중요해. 이유를 알면 어떤 방법을 이용할 수 없더라도 대안을 추론할 수 있어.
+
+--- Turn 18 - Assistant ---
+요구사항 정리:
+- **목적**: 원시 데이터를 전처리·검증 가능한 형태로 변환, 원본 보존.
+- **절차**: A(분기 전처리) → B(검증·아카이브).
+- **지침**: 입력별 분기, 원본 유지, 최소 가공.
+- **이유**: 무결성 보존, 법적 검증, 토큰 효율, 자동화·정확성 확보.
